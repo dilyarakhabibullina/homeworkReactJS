@@ -1,0 +1,19 @@
+.author {
+  color: black;
+  font-size: smaller;
+  text-align: left;
+}
+.messageText {
+  text-align: left;
+  margin-bottom: 30px;
+}
+.submitButton {
+  background-color: crimson;
+  color: white;
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+}
+.messageInput {
+  height: 35px;
+  border-radius: 10px 0 0 10px;
+}
