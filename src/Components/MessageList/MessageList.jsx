@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+
 import "./MessageList.css";
 
 const INITIAL_MESSAGES = [{ id: 1, author: "Mom", text: "Wash your hands!!!" }];
 
 export const MessageList = (props) => {
   const [text, setText] = useState("");
-  const [messageList] = useState(INITIAL_MESSAGES);
+  const [messageList, setMessageList] = useState(INITIAL_MESSAGES);
+
   const handleTextChange = (e) => setText(e.target.value);
 
   useEffect(() => {
@@ -15,12 +18,11 @@ export const MessageList = (props) => {
     let timerId = null;
     if (lastMessage.author !== "Bot" && lastMessage.author !== "Mom") {
       timerId = setTimeout(() => {
-        messageList.push({
-          id: botID,
-          author: "Bot",
-          text: "Я робот Вертер",
-        });
-      }, 5000);
+        setMessageList([
+          ...messageList,
+          { id: botID, author: "Bot", text: "Я робот Вертер" },
+        ]);
+      }, 1500);
       return () => {
         clearTimeout(timerId);
       };
@@ -29,15 +31,15 @@ export const MessageList = (props) => {
 
   function addPost() {
     let idNext = messageList.length + 1;
+
     messageList.push({
       id: idNext,
       author: "Me",
       text: text,
     });
-    console.log(messageList);
+    setMessageList([...messageList]);
   }
 
-  console.log(text);
   return (
     <>
       <div>
@@ -49,11 +51,19 @@ export const MessageList = (props) => {
         ))}
       </div>
       <div class="inputArea">
-        <input class="messageInput" value={text} onChange={handleTextChange} />
-        <TextField id="standard-basic" label="Standard" variant="standard" />
-        <button class="submitButton" onClick={addPost}>
-          Click me, please, to submit!
-        </button>
+        <div>
+          <TextField
+            style={{ color: "white" }}
+            id="standard-basic"
+            variant="standard"
+            value={text}
+            onChange={handleTextChange}
+            autoFocus
+          />
+        </div>
+        <Button variant="contained" onClick={addPost}>
+          SEND MESSAGE
+        </Button>
       </div>
     </>
   );
