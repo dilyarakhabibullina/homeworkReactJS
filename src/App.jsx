@@ -1,22 +1,18 @@
+import React from "react";
 import "./App.css";
-import { ChatList } from "./Components/ChatList/ChatList";
-import { MessageList } from "./Components/MessageList/MessageList";
+import { Router } from "./Router";
 
-function App() {
+const ROUTS = {
+  HOME: "/",
+  PROFILE: "/profile",
+  CHATS: "/chats",
+};
+
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p class="greeting">Welcome to our Messenger!</p>
-        <div className="chatArea">
-          <div class="chatContainer">
-            <ChatList />
-          </div>
-          <div>
-            <MessageList />
-          </div>
-        </div>
-      </header>
-    </div>
+    <>
+      <Router />
+    </>
   );
 }
 

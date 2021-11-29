@@ -7,9 +7,11 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 
+import { Home } from "../../Screens/Home/Home";
+
 import "./ChatList.css";
 
-const CHATS = [
+export const CHATS = [
   { chat_id: 1, name: "Mom" },
   { chat_id: 2, name: "Papa" },
   { chat_id: 3, name: "Brother" },
