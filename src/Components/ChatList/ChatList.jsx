@@ -12,10 +12,10 @@ import { Home } from "../../Screens/Home/Home";
 import "./ChatList.css";
 
 export const CHATS = [
-  { chat_id: 1, name: "Mom" },
-  { chat_id: 2, name: "Papa" },
-  { chat_id: 3, name: "Brother" },
-  { chat_id: 4, name: "Dog" },
+  { id: 1, name: "Mom" },
+  { id: 2, name: "Papa" },
+  { id: 3, name: "Brother" },
+  { id: 4, name: "Dog" },
 ];
 
 export const ChatList = () => {

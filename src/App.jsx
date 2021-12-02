@@ -1,4 +1,6 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { storeCheckbox } from "./Store";
 import "./App.css";
 import { Router } from "./Router";
 
@@ -10,9 +12,11 @@ const ROUTS = {
 
 export function App() {
   return (
-    <>
-      <Router />
-    </>
+    <Provider store={storeCheckbox}>
+      <>
+        <Router />
+      </>
+    </Provider>
   );
 }
 
