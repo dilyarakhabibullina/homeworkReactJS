@@ -32,6 +32,9 @@
   color: red;
   font-size: 25px;
 }
+.chatListStyle {
+  color: white;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -39,9 +39,7 @@ export function Router() {
           <Home />
         </Route>
         <Route exact path={ROUTS.CHAT} render={() => <Chats />} />
-        {/* <Route exact path={"/chats" / chat_id}>
-          Это чат с id {chat_id}
-        </Route> */}
+        <Route path="/chats/: chatId">Это чат с id</Route>
         <Route exact path={ROUTS.PROFILE} component={Profile} />
         <Route path={ROUTS.NO_CHAT}>No such chat</Route>
         <Route path={ROUTS.NOT_FOUND}>Oops... Nothing found</Route>

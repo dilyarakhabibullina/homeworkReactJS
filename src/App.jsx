@@ -1,6 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { storeCheckbox } from "./Store";
+import { persistor } from "./Store";
+import { store } from "./Store";
 import "./App.css";
 import { Router } from "./Router";
 
@@ -13,9 +14,11 @@ const ROUTS = {
 export function App() {
   return (
     <Provider store={storeCheckbox}>
-      <>
-        <Router />
-      </>
+      <PersistGate loading={null} persistor={persistor}>
+        <>
+          <Router />
+        </>
+      </PersistGate>
     </Provider>
   );
 }

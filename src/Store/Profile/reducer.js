@@ -1,4 +1,4 @@
-import { TOGGLE_CHECKBOX } from "./constants";
+import { CHANGE_USER_NAME, TOGGLE_CHECKBOX } from "./constants";
 
 const initialCheckboxState = {
   isChecked: false,
@@ -12,6 +12,12 @@ export const checkboxReducer = (state1 = initialCheckboxState, action) => {
       return {
         ...state1,
         isChecked: !state1.isChecked,
+      };
+    }
+    case CHANGE_USER_NAME: {
+      return {
+        ...state1,
+        userName: action.payload.userName,
       };
     }
     default:
