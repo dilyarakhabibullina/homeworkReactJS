@@ -44,7 +44,9 @@ export const MessageList = (props) => {
     <>
       <div>
         {messageList.map((message) => (
-          <div key={message.id}>
+          <div
+          // key={message.id}
+          >
             <p className="author">{message.author}:</p>
             <div className="messageText">{message.text}</div>
           </div>
