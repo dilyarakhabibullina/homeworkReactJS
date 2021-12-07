@@ -1,9 +1,10 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { persistor } from "./Store";
-import { store } from "./Store";
 import "./App.css";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import { Router } from "./Router";
+import { persistor, store } from "./Store";
+import { PersistConfig } from "redux-persist";
 
 const ROUTS = {
   HOME: "/",
@@ -11,16 +12,26 @@ const ROUTS = {
   CHATS: "/chats",
 };
 
-export function App() {
+// export function App() {
+//   return (
+//     <Provider store={store}>
+//       <PersistGate loading={null} persistor={persistor}>
+//         <>
+//           <Router />
+//         </>
+//       </PersistGate>
+//     </Provider>
+//   );
+// }
+
+const App = () => {
   return (
-    <Provider store={storeCheckbox}>
-      <PersistGate loading={null} persistor={persistor}>
-        <>
-          <Router />
-        </>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Router />
       </PersistGate>
     </Provider>
   );
-}
+};
 
 export default App;

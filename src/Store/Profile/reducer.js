@@ -4,7 +4,6 @@ const initialCheckboxState = {
   isChecked: false,
   name1: "the hunter",
 };
-console.log(initialCheckboxState);
 
 export const checkboxReducer = (state1 = initialCheckboxState, action) => {
   switch (action.type) {

@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
+import React, { useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
-
-import { Home } from "../../Screens/Home/Home";
 
 import "./ChatList.css";
 
