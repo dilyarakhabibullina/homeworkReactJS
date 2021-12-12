@@ -3,6 +3,7 @@ export const ROUTS = {
   PROFILE: "/profile",
   CHATS: "/chats/:chatId?",
   CHAT: "/chats",
+  DOGS: "/dogs",
   NOT_FOUND: "/not-found",
   NO_CHAT: "/noChat",
 };

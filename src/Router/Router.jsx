@@ -17,6 +17,7 @@ import { Chats } from "../Screens/Chats/Chats";
 import { Profile } from "../Screens/Profile/Profile";
 import { CHATS } from "../Components/ChatList/ChatList";
 //import { Chats } from "../Screens/Chats/Chats";
+import { Dogs } from "../Screens/Dogs";
 
 let chat_id = CHATS.chat_id;
 
@@ -33,6 +34,9 @@ export function Router() {
         <li>
           <Link to={ROUTS.PROFILE}>Profile</Link>
         </li>
+        <li>
+          <Link to={ROUTS.DOGS}>Dogs</Link>
+        </li>
       </ul>
       <Switch>
         <Route exact path={ROUTS.HOME}>
@@ -41,6 +45,9 @@ export function Router() {
         <Route exact path={ROUTS.CHAT} render={() => <Chats />} />
         <Route path="/chats/: chatId">Это чат с id</Route>
         <Route exact path={ROUTS.PROFILE} component={Profile} />
+        <Route path={ROUTS.DOGS}>
+          Это собачки <Dogs />
+        </Route>
         <Route path={ROUTS.NO_CHAT}>No such chat</Route>
         <Route path={ROUTS.NOT_FOUND}>Oops... Nothing found</Route>
         <Route>
