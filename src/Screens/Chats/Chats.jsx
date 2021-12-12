@@ -31,11 +31,13 @@ export function Chats() {
       <header className="App-header">
         <p class="greeting">Welcome to our Messenger!</p>
         <div>{chats.id2.chatName}</div>
-        <div>{chats.id2.messages.text}</div>
+        <div>{chats.id2.messages.author}</div>
 
         <div className="chatArea">
           <div class="chatContainer">
-            <ChatList />
+            {Object.entries(chats).forEach(([key, element]) => {
+              console.log(key, element);
+            })}
           </div>
         </div>
       </header>

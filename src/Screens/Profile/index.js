@@ -1,3 +1,3 @@
-import { Profile } from "./Screens/Home";
+import { Profile } from "../Screens/Home";
 
 export { Profile };

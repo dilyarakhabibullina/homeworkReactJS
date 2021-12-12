@@ -6,6 +6,7 @@ import { chatsReducer } from "./Chats/reducer";
 import { messagesReducer } from "./Messages/reducer";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { dogReducer } from "./Dog/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   profile: checkboxReducer,
   chats: chatsReducer,
   messages: messagesReducer,
+  dog: dogReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
