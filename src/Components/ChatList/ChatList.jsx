@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
+import React, { useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
-
-import { Home } from "../../Screens/Home/Home";
 
 import "./ChatList.css";
 
 export const CHATS = [
-  { id: 1, name: "Mom" },
-  { id: 2, name: "Papa" },
-  { id: 3, name: "Brother" },
-  { id: 4, name: "Dog" },
+  { id: "1", name: "Mom" },
+  { id: "2", name: "Papa" },
+  { id: "3", name: "Brother" },
+  { id: "4", name: "Dog" },
 ];
+
+// export const CHATS = {
+//   chat_id: {
+//     chatName: "Mom",
+//     messages: [{ text: "hi, sunny", author: "Mommy" }],
+//   },
+// };
 
 export const ChatList = () => {
   const [chatList] = useState(CHATS);
@@ -30,7 +32,9 @@ export const ChatList = () => {
               <ListItemText />
               <div className="listItem">
                 {chatList.map((chat) => (
-                  <div key={chat.chat_id}>
+                  <div
+                  // key={chat.chat_id}
+                  >
                     <p className="chat">
                       <span className="chatWith"> chat with</span>
                     </p>
