@@ -40,5 +40,5 @@ export const Dogs = () => {
     );
   }
 
-  return <img src={dogUrl}></img>;
+  return <img src={dogUrl} alt="dogs"></img>;
 };
