@@ -1,15 +1,40 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import "firebase/auth";
+import "firebase/database";
+import "firebase/compat/database";
+
 import { changeUserName, toggleCheckbox } from "../../Store/Profile/actions";
 import { profileSelector } from "../../Store/Profile/selectors";
 import { addChatAction } from "../../Store/Chats/actions";
 import "./Profile.css";
 import { ChatList } from "../../Components/ChatList/ChatList";
-import { addMessageWithThunk } from "../../Store/Messages/actions";
 
 export const Profile = () => {
   const dispatch = useDispatch();
   const { name, isChecked } = useSelector((state) => state);
   const { userName } = useSelector(profileSelector);
+  const { chatList } = useSelector((state) => state.chats);
+
+  const handleInitFirebaseProfile = async () => {
+    const id = firebase.auth().currentUser.uid;
+
+    await firebase
+      .database()
+      .ref("profile")
+      .child(id)
+      .child("userName")
+      .on("value", (snapshot) => {
+        dispatch(changeUserName({ name: snapshot.val() }));
+      });
+  };
+
+  useEffect(() => {
+    handleInitFirebaseProfile();
+  }, []);
 
   const handleCheckbox = () => {
     dispatch(toggleCheckbox());
@@ -17,17 +42,10 @@ export const Profile = () => {
     dispatch(addChatAction({ id: "2", name: "Papa" }));
   };
 
-  const { chatList } = useSelector((state) => state.chats);
-
   const handleChangeName = (e) => {
-    dispatch(changeUserName({ userName: e.target.value }));
-    dispatch(
-      addMessageWithThunk({
-        chatId: "id1",
-        message: "some text from Thunk",
-        author: "Dilyara",
-      })
-    );
+    const db = firebase.database();
+    const id = firebase.auth().currentUser.uid;
+    db.ref("profile").child(id).child("userName").set(e.target.value);
   };
 
   return (

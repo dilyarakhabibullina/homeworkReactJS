@@ -1,11 +1,9 @@
-import { ChatList } from "../../Components/ChatList/ChatList";
-import React, { useEffect, useState } from "react";
+import React, {
+  // useEffect,
+  useState,
+} from "react";
 import "./Chats.css";
 import { useParams } from "react-router";
-import { Redirect } from "react-router";
-import { ROUTS } from "../../Router/constants";
-import { CHATS } from "../../Components/ChatList/ChatList";
-import { MessageList } from "../../Components/MessageList/MessageList";
 
 export const initialChats = {
   id1: {
